@@ -1,0 +1,31 @@
+.header {
+  background-color: #6aa84f;
+  height: 100px;
+}
+.navigation {
+  flex: 1;
+  height: 300px;
+  margin-right: 10px;
+  background-color: #6fa8dc;
+}
+.main {
+  flex: 3;
+  height: auto;
+  background-color: #e06666;
+}
+.subcontents {
+  flex: 1;
+  height: 300px;
+  margin-right: 10px;
+  background-color: #ffd966;
+}
+.row {
+  display: flex;
+  padding: 10px 0px 10px 10px;
+}
+.ad {
+  height: 120px;
+  width: auto;
+  margin: 0px 10px 10px 10px;
+  background-color: #b4a7d6;
+}

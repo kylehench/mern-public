@@ -1,0 +1,12 @@
+.app {
+  background-color: #dddddd;
+  padding: 10px;
+}
+.body {
+  display: flex;
+  padding-top: 10px;
+}
+.row {
+  display: flex;
+  padding: 10px 0px 10px 10px
+}
