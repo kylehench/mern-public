@@ -61,17 +61,17 @@ app.get('/api', (req, res) => {
 
 // API for new user
 app.get('/api/users/new', (req, res) => {
-  res.send(createUser())
+  res.json(createUser())
 })
 
 // API for new company
 app.get('/api/companies/new', (req, res) => {
-  res.send(createCompany())
+  res.json(createCompany())
 })
 
 // API for a new user and new company
 app.get('/api/user/company', (req, res) => {
-  res.send({
+  res.json({
     user: createUser(),
     company: createCompany(),
   })
