@@ -6,4 +6,3 @@ mongoose.connect('mongodb://localhost/jokes-api', {
 })
   .then(() => console.log('Established a connection with the database'))
   .catch( err => console.log('Something went wrong when connecting to the database', err))
-  
