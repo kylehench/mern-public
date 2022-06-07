@@ -1,19 +1,34 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 
 const PersonForm = () => {
-  const [message, setMessage] = useState('Loading...')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
 
-  useEffect(() => {
-    axios.get('http://localhost:8000/api')
-      .then(res => setMessage(res.data.message))
-      .catch(err => console.log(err))
-  }, [])
+  // handler when the form is submitted
+  const onSubmitHandler = (e) => {
+    e.preventDefault()
+    axios.post('http://localhost:8000/api/people', {
+      firstName,
+      lastName
+    })
+      .then( res => {
+        console.log(res)
+        console.log(res.data)
+      })
+      .catch( err => console.log(err))
+  }
 
   return (
-    <div>
-      <h2>Message from the backend: {message}</h2>
-    </div>
+    <form onSubmit={onSubmitHandler} className='form'>
+      <p>
+        <label>First Name</label>
+        <input type="text" onChange={(e) => setFirstName(e.target.value)} className="form-control mb-2"/>
+        <label>Last Name</label>
+        <input type="text" onChange={(e) => setLastName(e.target.value)} className="form-control mb-2"/>
+      </p>
+      <input type="submit" className="btn btn-primary" />
+    </form>
   )
 }
 export default PersonForm
