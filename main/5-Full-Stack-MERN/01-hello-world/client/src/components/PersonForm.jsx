@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-const PersonForm = () => {
+const PersonForm = (props) => {
+  const { people, setPeople } = props
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
 
@@ -15,6 +16,7 @@ const PersonForm = () => {
       .then( res => {
         console.log(res)
         console.log(res.data)
+        setPeople([...people, res.data])
       })
       .catch( err => console.log(err))
   }
