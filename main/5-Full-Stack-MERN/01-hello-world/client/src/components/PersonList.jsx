@@ -17,7 +17,10 @@ const PersonList = (props) => {
   return (
     <div>
       { people.map((person, index) => 
-        <p key={index}>{person.lastName}, {person.firstName}<br /><Link to={`/people/${person._id}`}>{person.firstName}'s Page</Link></p>
+        <p key={index}>{person.lastName}, {person.firstName}<br />
+          <Link to={`/people/${person._id}`}>{person.firstName}'s Page</Link>&nbsp;|&nbsp;
+          <Link to={`/people/edit/${person._id}`}>Edit</Link>
+        </p>
       ) }
     </div>
   )

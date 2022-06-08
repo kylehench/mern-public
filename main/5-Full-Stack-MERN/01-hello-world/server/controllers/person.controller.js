@@ -1,4 +1,4 @@
-const Person = require('../models/person.model');    /* this is new */
+const Person = require('../models/person.model')
 
 module.exports.index = (request, response) => {
   response.json({
@@ -29,5 +29,11 @@ module.exports.getAllPeople = (request, response) => {
 module.exports.getOnePerson = (request, response) => {
   Person.findOne({ _id: request.params._id })
     .then(person => response.json(person))
+    .catch(err => response.json(err))
+}
+
+module.exports.updatePerson = (request, response) => {
+  Person.findOneAndUpdate({_id: request.params._id}, request.body, {new:true})
+    .then(updatedPerson => response.json(updatedPerson))
     .catch(err => response.json(err))
 }
