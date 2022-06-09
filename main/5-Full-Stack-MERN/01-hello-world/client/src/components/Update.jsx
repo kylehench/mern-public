@@ -39,7 +39,7 @@ const Update = (props) => {
         <label>Last Name:</label>
         <input type="text" value={person.lastName} onChange={(e) => setPerson({...person, lastName: e.target.value})} className="form-control mb-2"/>
       </p>
-      <input type="submit" className="btn btn-primary" />
+      <input type="submit" value="Edit" className="btn btn-primary" />
     </form>
   )
 }

@@ -6,7 +6,7 @@ import PersonList from '../components/PersonList'
 const Main = (props) => {
   const [people, setPeople] = useState([])
 
-  const removeFromDom = personId => setPeople(people.filter(person => person._id != personId))
+  const removeFromDom = personId => setPeople(people.filter(person => person._id !== personId))
 
   return (
     <div>
