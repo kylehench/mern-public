@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
 import ProductForm from './ProductForm'
+import DeleteButton from './DeleteButton'
 
 const Update = (props) => {
   const { products, setProducts } = props
@@ -47,8 +48,13 @@ const Update = (props) => {
   return (
     <div className='container mt-3'>
       <h2>Edit Product</h2>
-      { loaded && <ProductForm product={product} setProduct={setProduct} onSubmitProp={updateProduct} submitText="Edit" /> }
-      
+      { loaded && <>
+        <ProductForm product={product} setProduct={setProduct} onSubmitProp={updateProduct} submitText="Edit" />
+        <div className="my-2">
+          <DeleteButton productId={product._id} successCallback={() => navigate('/')} />
+        </div>
+        <button onClick={() => navigate('/')} className='btn btn-secondary btn-sm'>Cancel</button>
+      </> }
     </div>
   )
 }

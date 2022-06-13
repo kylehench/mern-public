@@ -1,15 +1,10 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import DeleteButton from './DeleteButton'
 
 const Products = (props) => {
   const { removeFromDom, products, setProducts } = props
-
-  const deleteProduct = productId => {
-    axios.delete(`http://localhost:8000/api/products/${productId}`)
-      .then(removeFromDom(productId))
-      .catch(err => console.log(err))
-  }
 
   useEffect(() => {
     axios.get('http://localhost:8000/api/products')
@@ -39,7 +34,7 @@ const Products = (props) => {
               <td className='py-2'>
                 <Link to={`/${product._id}`}>View</Link>&nbsp;|&nbsp;
                 <Link to={`/products/edit/${product._id}`}>Edit</Link>&nbsp;|&nbsp;
-                <button onClick={e => deleteProduct(product._id)} className='btn btn-sm btn-danger'>Delete</button>
+                <DeleteButton productId={product._id} successCallback={() => removeFromDom(product._id)} />
               </td>
             </tr>
           )}
