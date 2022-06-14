@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Main from "./views/Main";
-import AuthorCreate from './components/AuthorCreate';
-import AuthorUpdate from './components/AuthorUpdate';
+import AuthorCreate from './views/AuthorCreate';
+import AuthorUpdate from './views/AuthorUpdate';
 
 function App() {
   return (

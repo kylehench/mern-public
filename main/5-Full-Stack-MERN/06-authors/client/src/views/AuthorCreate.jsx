@@ -2,7 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import AuthorForm from './AuthorForm'
+import AuthorForm from '../components/AuthorForm'
 
 const AuthorCreate = () => {
   const [author, setAuthor] = useState({name: ''})
