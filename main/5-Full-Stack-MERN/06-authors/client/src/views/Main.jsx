@@ -31,14 +31,16 @@ const Main = () => {
             <th>Author</th>
             <th>Actions available</th>
           </tr>
-          { authors.map((author, index) =>
-            <tr key={index}>
-              <td>{author.name}</td>
-              <td>
-                <button onClick={() => navigate(`/authors/${author._id}`)} className='btn btn-secondary ms-1 btn-sm'>Edit</button>
-                <button onClick={() => deleteAuthor(author._id)} className='btn btn-danger ms-1 btn-sm'>Delete</button>
-              </td>
-            </tr>
+          { authors
+            .sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() ? 1:-1)
+            .map((author, index) =>
+              <tr key={index}>
+                <td>{author.name}</td>
+                <td>
+                  <button onClick={() => navigate(`/authors/${author._id}`)} className='btn btn-secondary ms-1 btn-sm'>Edit</button>
+                  <button onClick={() => deleteAuthor(author._id)} className='btn btn-danger ms-1 btn-sm'>Delete</button>
+                </td>
+              </tr>
           ) }
         </tbody>
       </table>
