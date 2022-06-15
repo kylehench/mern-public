@@ -33,4 +33,26 @@ module.exports.deletePlayer = (request, response) => {
   Player.deleteOne({_id: request.params._id})
     .then(deleteConfirmation => response.json(deleteConfirmation))
     .catch(err => response.json(err))
+  }
+  
+// set game status
+module.exports.setGameStatus = (request, response) => {
+  const { _id, status, gameId } = request.params
+  Player.findByIdAndUpdate({_id: _id}, {$set: {
+      "gameStatuses.$[gameStatus].status": status
+    }}, {
+      "arrayFilters": [
+        {"gameStatus.game": gameId}
+      ], new: true
+  })
+    .then(updatedPlayer => {
+      if (updatedPlayer.gameStatuses.filter(status => status.game===parseInt(gameId)).length===1) return response.json(updatedPlayer)
+      Player.findByIdAndUpdate({_id: _id}, {$push: {
+          gameStatuses: {game: gameId, status: status}
+        }}, { new: true }
+      )
+        .then(updatedPlayer => response.json(updatedPlayer))
+        .catch(err => response.json(err))
+    })
+    .catch(err => response.json(err))
 }

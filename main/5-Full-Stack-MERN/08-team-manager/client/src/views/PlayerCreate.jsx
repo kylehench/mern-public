@@ -1,15 +1,12 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 const PlayerCreate = () => {
   const [player, setPlayer] = useState({name: '', preferredPosition: ''})
   const navigate = useNavigate()
   const [validationErrors, setValidationErrors] = useState({})
-
-  const createPlayer = player => {
-  }
   
   const onSubmitHandler = e => {
     e.preventDefault()

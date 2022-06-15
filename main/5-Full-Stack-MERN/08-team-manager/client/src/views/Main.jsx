@@ -1,11 +1,10 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 
 const Main = () => {
   const [players, setPlayers] = useState([])
-  const navigate = useNavigate()
 
   useEffect(() => {
     axios.get(`http://localhost:8000/api/players`)

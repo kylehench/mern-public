@@ -6,4 +6,5 @@ module.exports = (app) => {
   app.post('/api/players', PlayerController.createPlayer)
   app.put('/api/players/:_id', PlayerController.updatePlayer)
   app.delete('/api/players/:_id', PlayerController.deletePlayer)
+  app.get('/api/players/:_id/games/:gameId/status/:status', PlayerController.setGameStatus)
 }

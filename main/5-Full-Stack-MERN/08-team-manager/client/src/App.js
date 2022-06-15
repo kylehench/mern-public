@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="" element={<Main />} />
         <Route path="/players/new" element={<PlayerCreate />} />
-        <Route path="/status/game/:id" element={<PlayerStatus />} />
+        <Route path="/status/game/:gameId" element={<PlayerStatus />} />
       </Routes>
       </BrowserRouter>
     </div>
