@@ -42,7 +42,7 @@ const PlayerStatus = () => {
           <div className="d-flex justify-content-center">
             <Link className={parseInt(gameId)===1 ? 'fw-bold' : ''} to='/status/game/1'>Game 1</Link>&nbsp;|&nbsp;
             <Link className={parseInt(gameId)===2 ? 'fw-bold' : ''} to='/status/game/2'>Game 2</Link>&nbsp;|&nbsp;
-            <Link className={parseInt(gameId)===3 ? 'fw-bold' : ''} to='/status/game/3'>Game 3</Link>&nbsp;|&nbsp;
+            <Link className={parseInt(gameId)===3 ? 'fw-bold' : ''} to='/status/game/3'>Game 3</Link>
           </div>
           <table className='table mt-2'>
             <tbody>

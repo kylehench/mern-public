@@ -26,7 +26,14 @@ const PlayerCreate = () => {
           <form onSubmit={onSubmitHandler} className="mt-2">
             <label>Player Name:</label>
             { validationErrors.name && <p className='text-danger'>{validationErrors.name.message}</p> }
-            <input type="text" value={player.name} onChange={e => setPlayer({...player, name: e.target.value})} className="form-control mb-2" />
+            <input type="text" value={player.name} onChange={e => {
+              setPlayer({...player, name: e.target.value})
+              if (e.target.value.length>1) {
+                setValidationErrors({})
+              } else {
+                setValidationErrors({name: {message: 'Name must be at least 2 characters long.'}})
+              }
+            }} className="form-control mb-2" />
             <label>Preferred Position:</label>
             <input type="text" value={player.preferredPosition} onChange={e => setPlayer({...player, preferredPosition: e.target.value})} className="form-control mb-2" />
             <input type="submit" value="Add Player" className='btn btn-success' />
