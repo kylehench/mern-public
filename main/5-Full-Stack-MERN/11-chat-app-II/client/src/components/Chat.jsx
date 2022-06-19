@@ -50,8 +50,8 @@ const Chat = () => {
           }}>
             <p className='mt-3'>I want to start chatting with the name...</p>
             <div className="d-flex justify-content-between">
-                <input type="text" value={username} onChange={e => setUsername(e.target.value)} className='form-control input-lg me-3' />
-                <input type="submit" value="Start Chatting" className='btn btn-primary' />
+              <input type="text" value={username} onChange={e => setUsername(e.target.value)} className='form-control input-lg me-3' />
+              <input type="submit" value="Start Chatting" className='btn btn-primary' />
             </div>
           </form>
 
@@ -74,7 +74,6 @@ const Chat = () => {
             </>)}
             <div ref={bottomRef} />
           </div>
-
           <form onSubmit={e => {
               e.preventDefault()
               socket.emit('msg', {username: username, msg: userMsg})
@@ -83,8 +82,8 @@ const Chat = () => {
             }} className='mx-2 mb-4 px-2'>
               <div className='my-2'>Write Message:</div>
               <div className="d-flex justify-content-between">
-                  <input type="text" value={userMsg} onChange={e => setUserMsg(e.target.value)} className='form-control input-lg me-3' />
-                  <input type="submit" value="Start Chatting" className='btn btn-primary' />
+                <input type="text" value={userMsg} onChange={e => setUserMsg(e.target.value)} className='form-control input-lg me-3' />
+                <input type="submit" value="Start Chatting" className='btn btn-primary' />
               </div>
             </form>
         
