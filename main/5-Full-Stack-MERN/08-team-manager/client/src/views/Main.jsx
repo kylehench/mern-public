@@ -9,6 +9,7 @@ const Main = () => {
   useEffect(() => {
     axios.get(`http://localhost:8000/api/players`)
       .then(res => {
+        console.log('get all players request')
         setPlayers(res.data)
       })
       .catch(err => console.log(err))
