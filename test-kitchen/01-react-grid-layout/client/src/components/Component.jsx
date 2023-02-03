@@ -6,13 +6,6 @@ import "../index.css"
 
 const ResponsiveGridLayout = WidthProvider(Responsive)
 
-const layout = [
-  { i: "blue-eyes-dragon", x: 0, y: 0, w: 1, h: 1 },
-  { i: "dark-magician", x: 1, y: 0, w: 1, h: 1 },
-  { i: "kuriboh", x: 2, y: 0, w: 1, h: 1 },
-  { i: "spell-caster", x: 3, y: 0, w: 1, h: 1 },
-  { i: "summoned-skull", x: 4, y: 0, w: 1, h: 1 }
-]
 
 const GridItemWrapper = styled.div`
   background: #f5f5f5;
@@ -20,46 +13,74 @@ const GridItemWrapper = styled.div`
   // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   // transition-duration: 150ms;
 `
-
 const GridItemContent = styled.div`
   // padding: 80px;
 `
-
+const GridItemTitle = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 5px ;
+  background: lightBlue;
+`
 const Root = styled.div`
-  // padding: 160px;
+  margin: 0 auto;
+  max-width: 1500px;
 `
 
-const Component = () => {
+const Component = ({ setTransparentSelection }) => {
+  const layout = [
+    { i: "key1", x: 0, y: 0, w: 1, h: 4 },
+    { i: "key2", x: 1, y: 0, w: 1, h: 4 },
+    { i: "key3", x: 2, y: 0, w: 1, h: 3 },
+    { i: "key4", x: 3, y: 0, w: 1, h: 4 },
+    { i: "key5", x: 4, y: 0, w: 1, h: 3 }
+  ]
+  // for (let i = 6; i < 11; i++) {
+  //   layout.push(
+  //     { i: `key${i}`, w: 1, h: 3 }
+  //   )
+    
+  // }
   return (
-    <div>
+    <Root>
       <ResponsiveGridLayout
         layouts={{ lg: layout }}
         breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
         cols={{ lg: 5, md: 4, sm: 3, xs: 2, xxs: 1 }}
-        rowHeight={50}
+        rowHeight={100}
         // width={100}
         draggableHandle=".grid-item__title"
+        onDragStart={() => {setTransparentSelection(true)}}
+        onDragStop={() => {setTransparentSelection(false)}}
+        onResizeStart={() => {setTransparentSelection(true)}}
+        onResizeStop={() => {setTransparentSelection(false)}}
       >
-        <div key="blue-eyes-dragon">
-            <div className="grid-item__title">
-              DRAG ME
-            </div>
-
-        </div>
-        <GridItemWrapper key="dark-magician">
+        {Array(15).fill().map((item, i) =>
+          <GridItemWrapper key={`key${i}`}>
+              <GridItemTitle className="grid-item__title">
+                <span className='text'>DRAG ME</span>
+              </GridItemTitle>
+              <div className='text'>
+                My ID is {i}.
+              </div>
+          </GridItemWrapper>
+        )}
+        {/* <GridItemWrapper key="key2">
+          <GridItemContent>
+            Not You Gee Oh
+          </GridItemContent>
+        </GridItemWrapper>
+        <GridItemWrapper key="key3">
           <GridItemContent>Not You Gee Oh</GridItemContent>
         </GridItemWrapper>
-        <GridItemWrapper key="kuriboh">
+        <GridItemWrapper key="key4">
           <GridItemContent>Not You Gee Oh</GridItemContent>
         </GridItemWrapper>
-        <GridItemWrapper key="spell-caster">
+        <GridItemWrapper key="key5">
           <GridItemContent>Not You Gee Oh</GridItemContent>
-        </GridItemWrapper>
-        <GridItemWrapper key="summoned-skull">
-          <GridItemContent>Not You Gee Oh</GridItemContent>
-        </GridItemWrapper>
+        </GridItemWrapper> */}
       </ResponsiveGridLayout>
-    </div>
+    </Root>
   )
 }
 
