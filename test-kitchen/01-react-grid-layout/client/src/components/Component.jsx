@@ -1,5 +1,5 @@
 import React from 'react'
-import {Responsive, WidthProvider} from "react-grid-layout"
+import { Responsive, WidthProvider } from "react-grid-layout"
 import styled from "styled-components"
 import "/node_modules/react-grid-layout/css/styles.css";
 import "../index.css"
@@ -9,18 +9,18 @@ const ResponsiveGridLayout = WidthProvider(Responsive)
 
 const GridItemWrapper = styled.div`
   background: #f5f5f5;
-  // transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  // transition-duration: 150ms;
+  border-radius: 10px;
 `
 const GridItemContent = styled.div`
   // padding: 80px;
+  border-radius: 10px;
 `
 const GridItemTitle = styled.div`
   display: flex;
   justify-content: center;
   padding: 5px ;
   background: lightBlue;
+  border-radius: 10px;
 `
 const Root = styled.div`
   margin: 0 auto;
